@@ -61,10 +61,16 @@
         <!-- Servo position limits in raw ticks (2048 = 0 rad), 3 deg beyond the software limits -->
         <param name="Min Position Limit">285</param>
         <param name="Max Position Limit">2196</param>
+        <!-- The XM430 reports Present PWM as a signed 16-bit value, but the model file lacks the sign -->
+        <param name="[unit info]">Present PWM, 1.0, raw, signed, 0.0</param>
         <command_interface name="Goal Position"/>
         <state_interface name="Present Position"/>
         <state_interface name="Present Velocity"/>
         <state_interface name="Present Current"/>
+        <state_interface name="Present PWM"/>
+        <state_interface name="Present Input Voltage"/>
+        <state_interface name="Present Temperature"/>
+        <state_interface name="Moving"/>
       </gpio>
     </xacro:unless>
   </ros2_control>
