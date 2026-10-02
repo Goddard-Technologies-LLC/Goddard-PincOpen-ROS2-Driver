@@ -2,6 +2,12 @@
 Changelog for package pinc_open_driver
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Forthcoming
+-----------
+* Replace the Feetech ST3215 driver with ROBOTIS dynamixel_hardware_interface for the Dynamixel XM430-W210-R
+* Restructure repository into a workspace holding the gripper package and the pinned Dynamixel submodules
+* Remove Feetech-specific driver sources and scripts
+
 0.1.0 (2025-12-31)
 ------------------
 * add additional launch arguments

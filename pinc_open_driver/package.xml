@@ -14,6 +14,10 @@
   <depend>ros2_control_cmake</depend>
   <depend>ros2_controllers</depend>
 
+  <exec_depend>dynamixel_hardware_interface</exec_depend>
+  <exec_depend>dynamixel_interfaces</exec_depend>
+  <exec_depend>dynamixel_sdk</exec_depend>
+
   <test_depend>ament_lint_auto</test_depend>
   <test_depend>ament_lint_common</test_depend>
 

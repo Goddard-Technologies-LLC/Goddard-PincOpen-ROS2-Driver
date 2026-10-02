@@ -1,0 +1,12 @@
+[submodule "dynamixel_interfaces"]
+	path = dynamixel_interfaces
+	url = https://github.com/ROBOTIS-GIT/dynamixel_interfaces.git
+	branch = jazzy
+[submodule "dynamixel_hardware_interface"]
+	path = dynamixel_hardware_interface
+	url = https://github.com/ROBOTIS-GIT/dynamixel_hardware_interface.git
+	branch = jazzy
+[submodule "DynamixelSDK"]
+	path = DynamixelSDK
+	url = https://github.com/ROBOTIS-GIT/DynamixelSDK.git
+	branch = jazzy

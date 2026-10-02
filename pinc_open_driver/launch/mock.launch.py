@@ -71,13 +71,14 @@ def generate_launch_description():
     control_node = Node(
         package='controller_manager',
         executable='ros2_control_node',
-        name='gripper_controller_manager',
-        parameters=[robot_description, robot_controllers],
+        namespace='gripper',
+        parameters=[robot_controllers],
         output='both',
     )
     robot_state_pub_node = Node(
         package='robot_state_publisher',
         executable='robot_state_publisher',
+        namespace='gripper',
         output='both',
         parameters=[robot_description],
     )
@@ -93,24 +94,27 @@ def generate_launch_description():
     joint_state_broadcaster_spawner = Node(
         package='controller_manager',
         executable='spawner',
+        namespace='gripper',
         arguments=[
             'pinc_open_driver_joint_state_broadcaster',
-            '--controller-manager', '/gripper_controller_manager'],
+            '--controller-manager', '/gripper/controller_manager'],
     )
 
     robot_controller_spawner = Node(
         package='controller_manager',
         executable='spawner',
+        namespace='gripper',
         arguments=[
             'pinc_open_driver_position_controller', '--inactive',
-            '--controller-manager', '/gripper_controller_manager'],
+            '--controller-manager', '/gripper/controller_manager'],
     )
     robot_controller_spawner = Node(
         package='controller_manager',
         executable='spawner',
+        namespace='gripper',
         arguments=[
             'pinc_open_driver_trajectory_controller',
-            '--controller-manager', '/gripper_controller_manager'],
+            '--controller-manager', '/gripper/controller_manager'],
     )
 
     # Delay rviz start after `joint_state_broadcaster`

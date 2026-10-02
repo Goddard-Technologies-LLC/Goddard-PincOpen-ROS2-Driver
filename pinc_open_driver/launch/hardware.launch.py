@@ -21,6 +21,7 @@ from launch.event_handlers import OnProcessExit
 from launch.substitutions import Command, FindExecutable, LaunchConfiguration, PathJoinSubstitution
 
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 from launch_ros.substitutions import FindPackageShare
 
 
@@ -43,8 +44,17 @@ def generate_launch_description():
         )
     )
 
+    declared_arguments.append(
+        DeclareLaunchArgument(
+            'serial_port',
+            default_value='/dev/pinc-gripper',
+            description='Serial device connected to the Dynamixel (e.g. /dev/ttyUSB0).',
+        )
+    )
+
     # Initialize Arguments
     gui = LaunchConfiguration('gui')
+    serial_port = LaunchConfiguration('serial_port')
 
     # Get URDF via xacro
     robot_description_content = Command(
@@ -60,14 +70,16 @@ def generate_launch_description():
             "default_color_rgba:='0.0 0.0 1.0 1.0' ",
             "default_linkage_color_rgba:='0 0.5 1.0 1.0' ",
             "default_tip_color_rgba:='0.0 0.0 0.7 1.0' ",
-            "baud_rate:='1000000' ",              # Edit to match configured baud rate
-            "comm_config_delay_ms:='50' "           # Edit to match required delay by system
-            "serial_port:='/dev/pinc-gripper' ",  # Edit to match port
-            "serial_timeout:='20' ",              # Edit to desired timeout for error
-            "servo_id:='6' ",                     # Edit to match configured gripper ID
+            "baud_rate:='57600' ",                # Edit to match configured baud rate
+            'serial_port:=', serial_port, ' ',    # Set via 'serial_port' launch argument
+            "error_timeout_ms:='500' ",           # Edit to desired timeout for error
+            "dxl_id:='1' ",                       # Edit to match configured Dynamixel ID
+            "operating_mode:='3' ",               # 3: position; 5: current-based position
         ]
     )
-    robot_description = {'robot_description': robot_description_content}
+    robot_description = {
+        'robot_description': ParameterValue(robot_description_content, value_type=str)
+    }
 
     robot_controllers = PathJoinSubstitution(
         [

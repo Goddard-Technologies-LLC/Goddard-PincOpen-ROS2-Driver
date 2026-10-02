@@ -1,0 +1,2 @@
+# Robotis U2D2 (FTDI FT232H) for the Dynamixel XM430-W210-R
+SUBSYSTEM=="tty", ATTRS{idVendor}=="0403", ATTRS{idProduct}=="6014", MODE="0666", GROUP="dialout", SYMLINK+="pinc-gripper"
