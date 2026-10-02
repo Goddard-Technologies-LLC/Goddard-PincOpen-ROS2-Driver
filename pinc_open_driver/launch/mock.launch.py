@@ -100,7 +100,7 @@ def generate_launch_description():
             '--controller-manager', '/gripper/controller_manager'],
     )
 
-    robot_controller_spawner = Node(
+    gripper_controller_spawner = Node(
         package='controller_manager',
         executable='spawner',
         namespace='gripper',
@@ -137,6 +137,7 @@ def generate_launch_description():
     nodes = [
         control_node,
         robot_state_pub_node,
+        gripper_controller_spawner,
         robot_controller_spawner,
         delay_rviz_after_joint_state_broadcaster_spawner,
         delay_joint_state_broadcaster_after_robot_controller_spawner,
