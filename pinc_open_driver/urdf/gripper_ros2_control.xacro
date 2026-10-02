@@ -34,8 +34,8 @@
 
     <joint name="${prefix}gripper">
       <command_interface name="position">
-        <param name="min">-2.44</param>
-        <param name="max">0.0</param>
+        <param name="min">-2.653</param>
+        <param name="max">0.1745</param>
       </command_interface>
       <xacro:if value="${use_mock_hardware}">
         <state_interface name="position">
@@ -58,6 +58,9 @@
         <param name="type">dxl</param>
         <param name="ID">${dxl_id}</param>
         <param name="Operating Mode">${operating_mode}</param>  <!-- 3 = position, 5 = current-based position -->
+        <!-- Servo position limits in raw ticks (2048 = 0 rad), 3 deg beyond the software limits -->
+        <param name="Min Position Limit">285</param>
+        <param name="Max Position Limit">2196</param>
         <command_interface name="Goal Position"/>
         <state_interface name="Present Position"/>
         <state_interface name="Present Velocity"/>

@@ -30,7 +30,7 @@ from rclpy.node import Node
 init(autoreset=True)
 
 # This presumes state message has joints in order!
-joint_positiion_limits = [(-2.4, 0.0)]
+joint_positiion_limits = [(-2.653, 0.1745)]
 
 joint_vel_limits = [5., 5.]
 

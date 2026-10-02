@@ -19,7 +19,7 @@
     <child link="${prefix}coupler"/>
     <origin xyz="0.053492 0 0.0"/>
     <axis xyz="0 0 1"/>
-    <limit lower="-2.44" upper="0" effort="5" velocity="1"/>
+    <limit lower="-2.653" upper="0.1745" effort="5" velocity="1"/>
   </joint>
 
   <joint name="${prefix}base_link_to_right_arm" type="revolute">

@@ -38,9 +38,9 @@ from sensor_msgs.msg import JointState
 from trajectory_msgs.msg import JointTrajectory, JointTrajectoryPoint
 
 NUM_JOINTS = 1
-joint_position_limits = [(-2.4, 0.0)]
+joint_position_limits = [(-2.653, 0.1745)]
 joint_vel_limits = (1.0, )  # Match limit in urdf
-OPEN_POSITION = (-2.4,)
+OPEN_POSITION = (-2.653,)
 CLOSED_POSITION = (0.05,)
 SQUEEZE_POSITION = (-0.05,)
 JNT_PREFIX = 'pinc_open_'

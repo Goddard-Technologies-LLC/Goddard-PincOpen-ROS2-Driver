@@ -34,8 +34,8 @@ gripper:
         joint_limits:
           pinc_open_gripper:
             has_position_limits: true
-            min_position: -2.4   # fully open
-            max_position: 0.0    # fully closed
+            min_position: -2.653   # fully open (152 deg)
+            max_position: 0.1745   # 10 deg past closed (tight grip)
 
   pinc_open_driver_trajectory_controller:
     ros__parameters:
